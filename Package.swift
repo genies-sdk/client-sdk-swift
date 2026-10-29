@@ -16,7 +16,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/geniesinc/webrtc-xcframework.git", exact: "150.7871.2-genies.1"),
+        .package(url: "https://github.com/geniesinc/webrtc-xcframework.git", exact: "150.7871.2-genies.2"),
         .package(url: "https://github.com/livekit/livekit-uniffi-xcframework.git", exact: "0.1.9"),
         // Test-only: conformance oracle for the nanopb facades.
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.31.0"),
