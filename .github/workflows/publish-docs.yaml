@@ -18,6 +18,7 @@ permissions:
 
 jobs:
   symbol-graph:
+    if: github.repository == 'livekit/client-sdk-swift'
     name: Symbol Graph (${{ matrix.artifact_name }})
     runs-on: macos-26
     strategy:

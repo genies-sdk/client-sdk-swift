@@ -7,10 +7,7 @@ let package = Package(
     name: "LiveKit",
     platforms: [
         .iOS(.v13),
-        .macOS(.v10_15),
-        .macCatalyst(.v14),
-        .tvOS(.v17),
-        .visionOS(.v26),
+        .macOS(.v11),
     ],
     products: [
         .library(
@@ -19,8 +16,6 @@ let package = Package(
         ),
     ],
     dependencies: [
-        // LK-Prefixed Dynamic WebRTC XCFramework
-        .package(url: "https://github.com/livekit/webrtc-xcframework.git", exact: "150.7871.02"),
         .package(url: "https://github.com/livekit/livekit-uniffi-xcframework.git", exact: "0.1.9"),
         // Test-only: conformance oracle for the nanopb facades.
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.31.0"),
@@ -28,6 +23,12 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-docc-plugin.git", from: "1.3.0"),
     ],
     targets: [
+        // Genies WebRTC source: 37da78f55660265cade2a601dca4a171636e369c
+        .binaryTarget(
+            name: "LiveKitWebRTC",
+            url: "https://github.com/geniesinc/webrtc/releases/download/m150-genies.1/LiveKitWebRTC.xcframework.zip",
+            checksum: "b16a361bc67b99f03cc70dbeaf811e0f9e757d9d9bdb9ad6b199db328548c5f1",
+        ),
         .target(
             name: "CLiveKitProto",
             exclude: ["LICENSE-nanopb.txt", "module.modulemap"],
@@ -49,7 +50,7 @@ let package = Package(
         .target(
             name: "LiveKit",
             dependencies: [
-                .product(name: "LiveKitWebRTC", package: "webrtc-xcframework"),
+                "LiveKitWebRTC",
                 .product(name: "LiveKitUniFFI", package: "livekit-uniffi-xcframework"),
                 "LiveKitNanopb",
                 "LKObjCHelpers",

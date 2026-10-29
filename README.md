@@ -1,3 +1,5 @@
+> **Genies fork:** LiveKit Swift 2.17.0 using the Genies WebRTC build for audio-only receiver timing. The native source is [geniesinc/webrtc at 37da78f](https://github.com/geniesinc/webrtc/commit/37da78f55660265cade2a601dca4a171636e369c). The framework supports arm64 iOS devices, iOS Simulator, and macOS 11+. Intel, Mac Catalyst, tvOS, and visionOS are outside this release's binary support.
+
 <!--BEGIN_BANNER_IMAGE-->
 
 <picture>
@@ -31,7 +33,7 @@ For minimal examples view this repo 👉 [Swift SDK Examples](https://github.com
 
 ## Installation
 
-LiveKit for Swift is available as a Swift Package.
+This Genies build is available through Swift Package Manager. Use the same fork and version for all direct LiveKit dependencies in an app.
 
 ### Package.swift
 
@@ -41,7 +43,7 @@ Add the dependency and also to your target
 let package = Package(
   ...
   dependencies: [
-    .package(name: "LiveKit", url: "https://github.com/livekit/client-sdk-swift.git", .upToNextMajor("2.17.0")),
+    .package(name: "LiveKit", url: "https://github.com/geniesinc/client-sdk-swift.git", exact: "2.17.0-genies.1"),
   ],
   targets: [
     .target(
@@ -56,17 +58,15 @@ let package = Package(
 
 Go to Project Settings -> Swift Packages.
 
-Add a new package and enter: `https://github.com/livekit/client-sdk-swift`
+Add a new package and enter: `https://github.com/geniesinc/client-sdk-swift`. Select exact version `2.17.0-genies.1`.
 
 ### Pre-built XCFramework
 
-A pre-built binary distribution is available for faster integration and CI builds. Add the XCFramework package instead:
-
-`https://github.com/livekit/client-sdk-swift-xcframework`
-
-This package bundles `LiveKit.xcframework` (dynamic framework) along with its dependencies (`LiveKitWebRTC`, `RustLiveKitUniFFI`). It contains the same code as the source package above, just pre-compiled.
+The [upstream pre-built package](https://github.com/livekit/client-sdk-swift-xcframework) follows upstream WebRTC releases. Use the SPM dependency above for this Genies receiver-clock build.
 
 ### CocoaPods
+
+Use the SPM dependency above for this Genies build. The information below describes upstream CocoaPods support.
 
 > [!IMPORTANT]
 >
