@@ -1,4 +1,4 @@
-> **Genies fork:** LiveKit Swift 2.17.0 using the Genies WebRTC build for audio-only receiver timing. The native source is [geniesinc/webrtc at 37da78f](https://github.com/geniesinc/webrtc/commit/37da78f55660265cade2a601dca4a171636e369c). The framework supports arm64 iOS devices, iOS Simulator, and macOS 11+. Intel, Mac Catalyst, tvOS, and visionOS are outside this release's binary support. The native binary package is [geniesinc/webrtc-xcframework](https://github.com/geniesinc/webrtc-xcframework), pinned to 150.7871.2-genies.1.
+> **Genies fork:** LiveKit Swift 2.17.0 using the Genies WebRTC build for audio-only receiver timing. The native source is [genies-sdk/webrtc at 37da78f](https://github.com/genies-sdk/webrtc/commit/37da78f55660265cade2a601dca4a171636e369c). The framework supports arm64 iOS devices, iOS Simulator, and macOS 11+. Intel, Mac Catalyst, tvOS, and visionOS are outside this release's binary support. The native binary package is [genies-sdk/webrtc-xcframework](https://github.com/genies-sdk/webrtc-xcframework), pinned to 150.7871.2-genies.1.
 
 <!--BEGIN_BANNER_IMAGE-->
 
@@ -43,7 +43,7 @@ Add the dependency and also to your target
 let package = Package(
   ...
   dependencies: [
-    .package(name: "LiveKit", url: "https://github.com/geniesinc/client-sdk-swift.git", exact: "2.17.0-genies.1"),
+    .package(name: "LiveKit", url: "https://github.com/genies-sdk/client-sdk-swift.git", exact: "2.17.0-genies.1"),
   ],
   targets: [
     .target(
@@ -58,7 +58,7 @@ let package = Package(
 
 Go to Project Settings -> Swift Packages.
 
-Add a new package and enter: `https://github.com/geniesinc/client-sdk-swift`. Select exact version `2.17.0-genies.1`.
+Add a new package and enter: `https://github.com/genies-sdk/client-sdk-swift`. Select exact version `2.17.0-genies.1`.
 
 ### Pre-built XCFramework
 
@@ -349,4 +349,4 @@ Please join us on [Slack](https://livekit.io/join-slack) to get help from our de
 </table>
 <!--END_REPO_NAV-->
 
-Private binary downloads also require PAT credentials for api.github.com; see the [binary package access instructions](https://github.com/geniesinc/webrtc-xcframework#private-repository-access).
+Private binary downloads also require PAT credentials for api.github.com; see the [binary package access instructions](https://github.com/genies-sdk/webrtc-xcframework#private-repository-access).
